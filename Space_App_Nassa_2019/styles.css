@@ -1,0 +1,82 @@
+body {
+    margin: 0
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*               Primer menu                */
+
+.crear {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    background: transparent;
+    border-color: transparent;
+}
+
+#sub_1 {
+    width: 400px;
+    height: 600px;
+    position: absolute;
+    background-color: red;
+    top: 60px;
+    left: 180px;
+}
+
+
+/*              Segundo menu     */
+
+.ver{
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+button :hover{
+    cursor: grab;
+}
+
+#sub_2 {
+    width: 400px;
+    height: 600px;
+    position: absolute;
+    background-color: green;
+    top: 150px;
+    left: 180px;
+}
+
+
+/*  Tercer menu       */
+
+.otro {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 240px;
+    left: 50px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#sub_3 {
+    width: 400px;
+    height: 600px;
+    position: absolute;
+    background-color: orange;
+    top: 240px;
+    left: 180px;
+}
+
+.text_container{
+    display: none;
+}

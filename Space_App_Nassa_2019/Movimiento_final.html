@@ -1,0 +1,90 @@
+<html>
+    <head>
+      <style>
+          body {margin: 0}
+          canvas {width: 100%; height: 100%}
+    </style>
+    </head>
+    <body>
+    
+    
+ <script src="js/three.js"></script> 
+ <script src="js/OrbitControls.js"></Script>
+<script>
+ var controls,camera,scene,renderer,render;    
+	var geometry_s,material,mesh_s;
+    var geometry0,mesh0;
+    var light, light1;
+
+	init(); 
+	animate();
+
+	function init() {       
+ 
+
+renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+
+
+scene = new THREE.Scene();
+camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
+camera.position.set(1000, 1000, 1000 );
+  
+controls = new THREE.OrbitControls( camera, renderer.domElement );
+controls.maxDistance = 11000;
+
+        
+        light = new THREE.AmbientLight(0xFDB813,0.1);   //generamos luz ambiental
+        scene.add(light);
+        
+        light1 = new THREE.PointLight(0xFDB813,10);     //generamos un punto de luz
+        scene.add(light1);
+        
+        
+
+       material = new THREE.MeshBasicMaterial( { color:0xd2b48c, wireframe: true });    //definimos el color de la figura y el tipo de superficie         true: vertices   false:solido
+        
+          
+      
+       //Creación de la estrella
+		geometry_s = new THREE.SphereGeometry(200, 50, 50 ); //Creamos una esfera de medidas (radio,Nvertices x, Nvertices Y))
+		mesh_s = new THREE.Mesh( geometry_s, material ); //definimos mesh como la combinacion de la figura y el color-material
+		scene.add( mesh_s ); 
+        mesh_s.position.set(0,0,0);
+    
+      
+        //Planetas
+		geometry0 = new THREE.SphereGeometry(200, 50, 50 ); //Creamos una esfera de medidas (radio,Nvertices x, Nvertices Y))
+		mesh0 = new THREE.Mesh(geometry0, material); //definimos mesh como la combinacion de la figura y el color-material
+		scene.add( mesh0 ); 
+        mesh0.position.set(500,0,0);
+   
+    
+      
+        
+        //cambios a render para cambiar el color del fondo
+		           //Sirve para renderizar la pieza
+        renderer.setClearColor(0x000000);
+        renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setSize( window.innerWidth, window.innerHeight ); //definimos los parametros de renderizado, en este caso toda la pantalla
+
+		document.body.appendChild( renderer.domElement );  
+        
+
+	}
+
+	function animate() {         //Inicio de la funcion de animacion
+
+		requestAnimationFrame( animate ); 
+
+    controls.update();
+        
+		renderer.render( scene, camera );
+
+	}
+
+
+</script>
+    </body>
+</html>
